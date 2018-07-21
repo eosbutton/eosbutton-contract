@@ -726,15 +726,9 @@ void eos_button::c_sub_balance( account_name owner, asset value ) {
    const auto& from = from_acnts.get( value.symbol.name(), "no balance object found" );
    eosio_assert( from.balance.amount >= value.amount, "overdrawn balance" );
 
-
-   if( from.balance.amount == value.amount ) {
-      //print("from_acnts is empty |");
-      //Keep the record, because the record is likely to be used again when rewardinge tokens.
-   } else {
-      from_acnts.modify( from, 0, [&]( auto& a ) {
-          a.balance -= value;
-      });
-   }
+   from_acnts.modify( from, 0, [&]( auto& a ) {
+       a.balance -= value;
+   });
 }
 
 void eos_button::c_add_balance( account_name owner, asset value, account_name ram_payer )
