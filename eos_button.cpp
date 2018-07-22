@@ -559,8 +559,8 @@ void eos_button::claimad( account_name account )
     //print("claimad - Start |");
     require_auth( account );
 
-    asset airdrop_claim_quantity = asset(100000000, string_to_symbol(4, "EBT"));
-    time airdrop_claim_interval = 3600;
+    asset airdrop_claim_quantity = asset(500000000, string_to_symbol(4, "EBT"));
+    time airdrop_claim_interval = 86400;
     time airdrop_start_time = 1531908000;
     time airdrop_end_time = 1533117600;
 
